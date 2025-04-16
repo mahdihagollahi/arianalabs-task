@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useWatch } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Logo from "../assent/Logo.png";
@@ -13,9 +14,16 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    control, formState,
     setValue,
     formState: { errors },
   } = useForm();
+
+  const password = useWatch({
+    control,
+    name: 'password',
+    defaultValue: ''
+  });
 
   const onSubmit = async (data) => {
     try {
@@ -156,7 +164,14 @@ const Register = () => {
           </label>
           <input
             type="password"
-            {...register("password", { required: "Password is required" })}
+        
+            {...register("password", { 
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters"
+              }
+            })}
             placeholder="Please enter password"
             className="mt-2 p-2 w-full border rounded-lg border-[#E2E8F0] text-[#020617]"
           />
@@ -173,9 +188,13 @@ const Register = () => {
           </label>
           <input
             type="password"
-            {...register("confirm_password", {
-              required: "re-enter is required",
-            })}
+       
+
+        {...register("confirm_password", {
+          required: "Confirm Password is required",
+          validate: (value) => 
+            value === password || "Passwords do not match"
+        })}
             placeholder="Please re-enter your password"
             className="mt-2 p-2 w-full border rounded-lg border-[#E2E8F0] text-[#020617]"
           />
