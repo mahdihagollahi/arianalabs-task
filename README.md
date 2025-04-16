@@ -1,8 +1,8 @@
 
 
-# Store-Mountaineering
+# arianalabs-task
 
-> A site for buying mountaineering equipment.
+> A Dashboard task
 
 <!-- ![Logo](src/app/assent/Img/userPanel/Logo.png) -->
 ![Logo](https://github.com/mahdihagollahi/arianalabs-task/blob/master/src/assent/Logo.png
