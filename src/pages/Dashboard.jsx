@@ -1,8 +1,16 @@
 import React from 'react'
+import Sidebar from '../components/Sidebar'
+import DashboardPage from '../components/DashboardPage'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div className="flex items-center min-h-screen">
+    <Sidebar />
+   
+    <div className="flex-1">
+        <DashboardPage />
+      </div>
+  </div>
   )
 }
 

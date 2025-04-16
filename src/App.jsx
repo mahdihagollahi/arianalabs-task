@@ -5,6 +5,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import { useAuth } from './context/AuthContext';
+import Sidebar from './components/Sidebar';
+import DashboardPage from './components/DashboardPage';
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
@@ -27,6 +29,7 @@ const App = () => {
         />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
+   
     </Router>
   );
 };
